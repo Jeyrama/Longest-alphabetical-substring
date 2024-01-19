@@ -5,3 +5,6 @@ The input will only consist of lowercase characters and will be at least one let
 Example: 
   the longest alphabetical substring in "asdfaaaabbbbcttavvfffffdf" is "aaaabbbbctt".
 */
+
+
+// Solution
