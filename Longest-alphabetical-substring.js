@@ -26,3 +26,5 @@ function longest(str) {
   }
   return str.slice(pos, max+1+pos);
 }
+
+// or
