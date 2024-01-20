@@ -28,3 +28,43 @@ function longest(str) {
 }
 
 // or
+
+function longest(str, max = '') {
+  const current = [...str].reduce((acc, char) => (
+    char >= acc.slice(-1) ? 
+      acc + char : (max = acc.length > max.length ? 
+        acc : max, char)
+  ), '');
+  return current.length > max.length ? current : max;
+}
+
+// or
+
+function isAlphabetical(char, nextChar) {
+  let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
+    "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
+  return alphabet.indexOf(char) <= alphabet.indexOf(nextChar);
+}
+
+function longest(str) {
+  let longestStreak = '';
+  let currentStreak = '';
+  
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+    let nextChar = str[i + 1];
+    
+    if (isAlphabetical(char, nextChar)) {
+      currentStreak += char;
+    } else {
+      currentStreak += char;
+      if (currentStreak.length > longestStreak.length) {
+        longestStreak = currentStreak;
+      }
+      currentStreak = '';
+    }
+  }
+  
+  return longestStreak;
+}
